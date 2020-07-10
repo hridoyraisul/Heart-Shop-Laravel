@@ -6,6 +6,7 @@ use App\Customer;
 use App\Order;
 use App\OrderDetails;
 use App\Shipping;
+use Session;
 use Illuminate\Http\Request;
 class OrderController extends Controller
 {

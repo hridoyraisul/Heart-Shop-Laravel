@@ -5,6 +5,7 @@ use App\Customer;
 use App\Mail\SentCustomer;
 use App\Product;
 use Session;
+use Mail;
 use Illuminate\Http\Request;
 class CustomerController extends Controller
 {
