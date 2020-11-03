@@ -17,7 +17,9 @@
         "intervention/image": "^2.5",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
-        "laravel/ui": "^2.0"
+        "laravel/ui": "^2.0",
+        "nicolaslopezj/searchable": "^1.13",
+        "spatie/laravel-searchable": "^1.7"
     },
     "require-dev": {
         "facade/ignition": "^2.0",

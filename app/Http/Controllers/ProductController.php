@@ -21,6 +21,7 @@ class ProductController extends Controller
             'Product_short_description' => 'required',
             'Product_long_description' => 'required',
             'product_price' => 'required | integer',
+            'product_quantity' => 'required | integer | min:0',
             'publication_status' => 'required',
         ]);
         $product = new Product;
@@ -29,6 +30,7 @@ class ProductController extends Controller
         $product->Product_short_description = $request->Product_short_description;
         $product->Product_long_description = $request->Product_long_description;
         $product->product_price = $request->product_price;
+        $product->product_quantity = $request->product_quantity;
         $product->publication_status = $request->publication_status;
         $product->created_at = Carbon::now();
         $product->updated_at = Carbon::now();
@@ -42,6 +44,12 @@ class ProductController extends Controller
         return back()->with('product_add_notify', 'Product Added Successfully!');
     }
     public function manage(){
+//        $check = Product::where('product_quantity' == 0 )->first();
+//        if($check){
+//            $status = new Product;
+//            $status->publication_status = 'Unpublished';
+//            $status->update();
+//        }
         $product = Product::orderBy('id','DESC')->paginate(5);
         return view('backend.product.manage_product',compact('product'));
     }
@@ -58,6 +66,7 @@ class ProductController extends Controller
             'Product_short_description' => 'required',
             'Product_long_description' => 'required',
             'product_price' => 'required | integer',
+            'product_quantity' => 'required | integer | min:0',
             'publication_status' => 'required',
         ]);
         $product = Product::find($request->id);
@@ -66,6 +75,7 @@ class ProductController extends Controller
         $product->Product_short_description = $request->Product_short_description;
         $product->Product_long_description = $request->Product_long_description;
         $product->product_price = $request->product_price;
+        $product->product_quantity = $request->product_quantity;
         $product->publication_status = $request->publication_status;
         $product->updated_at = Carbon::now();
         $product->save();

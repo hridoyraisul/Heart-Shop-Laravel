@@ -78,6 +78,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="product_quantity" class="col-sm-2 col-form-label">Product Quantity</label>
+                            <div class="col-sm-10">
+                                <input type="number" name="product_quantity" class="form-control" id="product_quantity" value="{{$data->product_quantity}}">
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="product_image" class="col-sm-2 col-form-label">Product Image</label>
                             <div class="col-sm-10">
                                 <input type="file" name="product_image" class="form-control" id="product_image">

@@ -41,6 +41,7 @@
                             <th>ID No</th>
                             <th>Product Name</th>
                             <th>Price</th>
+                            <th>Quantity</th>
                             <th>Category</th>
                             <th>Short Description</th>
                             <th>Product Photo</th>
@@ -52,6 +53,7 @@
                                 <td>{{$sdp->id}}</td>
                                 <td>{{$sdp->product_name}}</td>
                                 <td>{{$sdp->product_price}}</td>
+                                <td>{{$sdp->product_quantity}}</td>
                                 <td>{{$sdp->product_category}}</td>
                                 <td>{{$sdp->Product_short_description}}</td>
                                 <td>

@@ -40,7 +40,7 @@
                                        value="{{old('last_name')}}" placeholder="Enter Last Name">
                             </div>
                             <div class="form-group">
-                                <label for="email_address">Email Address or Phone Number</label>
+                                <label for="email_address">Email Address</label>
                                 <input id="email_address" class="form-control" type="text" name="email_address"
                                        value="{{old('email_address')}}" placeholder="Enter Your Email">
                             </div>

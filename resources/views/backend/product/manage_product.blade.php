@@ -57,6 +57,7 @@
                             <th>ID No</th>
                             <th>Product Name</th>
                             <th>Price</th>
+                            <th>Quantity</th>
                             <th>Category</th>
                             <th>Created/Updated at</th>
                             <th>Product Image</th>
@@ -68,6 +69,7 @@
                                 <td>{{$cat->id}}</td>
                                 <td>{{$cat->product_name}}</td>
                                 <td>{{$cat->product_price}}</td>
+                                <td>{{$cat->product_quantity}}</td>
                                 <td>{{$cat->relationWithCategory->category_name}}</td>
                                 <td>
                                     @if($cat->created_at != $cat->updated_at)

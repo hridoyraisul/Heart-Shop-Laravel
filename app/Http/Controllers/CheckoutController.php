@@ -10,6 +10,7 @@ use Cart;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Mail\SentCustomer;
+use Illuminate\Support\Facades\DB;
 use Mail;
 use PhpParser\Node\Stmt\Return_;
 use Session;
@@ -66,12 +67,17 @@ class CheckoutController extends Controller
                 $orderDetails->product_id = $content->id ;
                 $orderDetails->product_name = $content->name ;
                 $orderDetails->product_image = $content->attributes->product_image ;
-                $orderDetails->product_price = $content->price ;
-                $orderDetails->product_quantity = $content->quantity ;
-                $orderDetails->save();}
+                $orderDetails->product_price = $content->price;
+                $orderDetails->product_quantity = $content->quantity;
+                DB::table('products')
+                    ->where('id', $content->id)
+                    ->decrement('product_quantity', $content->quantity);
+                $orderDetails->save();
+            }
             Cart::clear();
             Mail::to($order->OrderRelCustomer->email_address)->send(new OrderInvoice($order));
-            return redirect()->route('invoice_download',$order);
+            // return redirect()->route('invoice_download',$order);
+            return view('frontend.checkout.order_success');
         }
         elseif ($request->payment_type == 'DBBL'){
             return "we are working on it. Please select Cash on delivery option";
@@ -81,3 +87,4 @@ class CheckoutController extends Controller
         }
     }
 }
+

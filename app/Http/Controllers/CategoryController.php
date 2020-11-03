@@ -25,7 +25,7 @@ class CategoryController extends Controller
         return back()->with('catgory_add_notify','Category Added Successfully!');
     }
     public function manage(){
-        $category = Category::paginate(3);
+        $category = Category::paginate(5);
         return view('backend.category.manage',compact('category'));
     }
     public function unpublish($category){

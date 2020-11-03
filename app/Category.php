@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
-    use SoftDeletes;
+//    use SoftDeletes;
     protected $fillable = [
         'category_name', 'category_description', 'publication_status','deleted_at',
     ];

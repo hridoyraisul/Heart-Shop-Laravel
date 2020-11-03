@@ -173,8 +173,8 @@
                             </a>
                         </h2>
                         <div>Mirpur, Dhaka 1216</div>
-                        <div>+8801686851584</div>
-                        <div>raisulhridoy@hotmail.com</div>
+                        <div>+8801XXXXXXXXX</div>
+                        <div>contact@heartshop.com</div>
                     </div>
                 </div>
             </header>
@@ -197,7 +197,7 @@
                         <h2 class="to">{{$shippinginfo->full_name}}</h2>
                         <div class="address">{{$shippinginfo->address}}</div>
                         <div class="address">{{$shippinginfo->phone_number}}</div>
-                        <div class="email"><a href="mailto:john@example.com">{{$shippinginfo->email_address}}</a></div>
+                        <div class="email">{{$shippinginfo->email_address}}</div>
                     </div>
                     <div class="col invoice-details">
                     </div>

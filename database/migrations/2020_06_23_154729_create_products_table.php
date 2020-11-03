@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->text('Product_short_description');
             $table->text('Product_long_description');
             $table->integer('product_price');
+            $table->integer('product_quantity');
             $table->string('product_image')->default('default_image.jpg');
             $table->tinyInteger('publication_status');
             $table->timestamps();

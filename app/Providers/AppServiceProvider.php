@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 use App\Category;
+use App\Wishlist;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Cart;
@@ -30,6 +31,8 @@ class AppServiceProvider extends ServiceProvider
             $view->with('cartContent',Cart::getContent());
             $view->with('totalQuantity',Cart::getTotalQuantity());
             $view->with('subTotal',Cart::getSubTotal());
+            $view->with('wishList',Wishlist::where('customer_id','=',Session('customer_id'))->first());
+            $view->with('wishListCount',Wishlist::where('customer_id','=',Session('customer_id'))->count());
         });
     }
 }

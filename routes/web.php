@@ -28,6 +28,19 @@ Route::get('/shipping/edit/{id}','CheckoutController@editShipping');
 Route::post('/shipping/update/{id}','CheckoutController@updateShipping');
 Route::get('/payment-method','CheckoutController@paymentMethod');
 Route::post('/order-confirm','CheckoutController@storeOrder');
+//wishlist routes
+Route::get('/wishlist-view', 'WishlistController@index');
+Route::post('/wishlist-add', 'WishlistController@store');
+Route::get('/wishlist-clear/{id}', 'WishlistController@destroy');
+//search routes
+Route::post('/search','SearchController@search');
+//Color Finding Routes
+Route::post('/color-red','SearchController@colorRed');
+Route::post('/color-green','SearchController@colorGreen');
+Route::post('/color-blue','SearchController@colorBlue');
+Route::post('/color-white','SearchController@colorWhite');
+Route::post('/color-black','SearchController@colorBlack');
+Route::post('/color-yellow','SearchController@colorYellow');
 //..........................................................................................................................................
 //.....................................backend pages........................................................................................
 Route::get('/admin','BackendController@index');

@@ -51,25 +51,32 @@
                                     </a>
                                 </li>
                             </ul>
-                            <div class="filter-section">
-                                <select name="" id="">
-                                    <option value="#">Default short</option>
-                                    <option value="#">Default short</option>
-                                    <option value="#">Default short</option>
-                                    <option value="#">Default short</option>
-                                    <option value="#">Default short</option>
-                                </select>
-                            </div>
+                        
+                            @if($allProduct == NULL)
                             <div class="showing-result">
-                                <span>Showing 1-12 of 30 relults</span>
+                                
                             </div>
+                            @else
+                            <div class="showing-result">
+                                <span>Showing {{count($allProduct)}} results</span>
+                            </div>
+                            @endif
 
                         </div>
+
                         <!-- tab content-->
                         <div class="tab-content pt-4">
                             <!-- tab grid content-->
                             <div class="tab-pane fade active show" id="grid-view" role="tabpanel">
                                 <div class="row">
+                                    @if($allProduct == NULL)
+
+                                        <div class="alert alert-dark w-100 alert-dismissible" role="alert">
+                                             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            <strong>Woops!    </strong> &nbsp Sorry No Data Found. &nbsp&nbsp&nbsp
+                                        </div>
+                                        @endif
+                                        @if(!empty($allProduct) && count($allProduct) > 0) 
                                     <!--Single product start-->
                                     @foreach($allProduct as $alp)
                                     <div class="col-md-4">
@@ -124,11 +131,13 @@
                                         @endforeach
                                     <!--Single product End-->
                                     {{$allProduct->links()}}
+                                    @endif
                                 </div>
                             </div>
                             <!-- tab list content-->
                             <div class="tab-pane fade" id="list-view" role="tabpanel">
                                 <!--Single product start-->
+                                @if(!empty($allProduct) && count($allProduct) > 0)
                                 @foreach($allProduct as $alp)
                                 <div class="row pb-4">
                                     <div class="col-md-4">
@@ -177,6 +186,7 @@
                                 @endforeach
                                 <!--Single product End-->
                                 {{$allProduct->links()}}
+                                @endif
                             </div>
                         </div>
                     </div>
